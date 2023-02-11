@@ -1,0 +1,118 @@
+html(lang='en')
+  head
+    title Create CV
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  body
+    .container
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand CV Creator
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav
+            li.navbar-item
+              a.nav-link(href='/') Create CV
+            li.navbar-item
+              a.nav-link(href='/cvs') View CVs
+      h1.text-center.text-primary CV Form
+      form(method='POST' action='/cv')
+        .row
+          .col
+            .form-group
+              label.text-uppercase.font-weight-bold Name:
+              input.form-control.bg-light(type='text' name='name' required)
+        .row
+          .col
+            h3.text-primary Academic Qualifications:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Degree:
+                input.form-control.bg-light(type='text' name='academicQualificationsdegree' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Institution:
+                input.form-control.bg-light(type='text' name='academicQualificationsinstitution' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Field of Study:
+                input.form-control.bg-light(type='text' name='academicQualificationsfieldOfStudy' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Start Year:
+                input.form-control.bg-light(type='number' name='academicQualificationsstartYear' required)
+              .form-group
+                label.text-uppercase.font-weight-bold End Year:
+                input.form-control.bg-light(type='number' name='academicQualificationsendYear' required)
+        .row
+          .col
+            h3.text-primary Professional Experience:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Job Title:
+                input.form-control.bg-light(type='text' name='professionalExperiencejobTitle' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Company:
+                input.form-control.bg-light(type='text' name='professionalExperiencecompany' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Start Date:
+                input.form-control.bg-light(type='date' name='professionalExperiencestartDate' required)
+              .form-group
+                label.text-uppercase.font-weight-bold End Date:
+                input.form-control.bg-light(type='date' name='professionalExperienceendDate' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Responsibilities:
+                textarea.form-control.bg-light(name='professionalExperienceresponsibilities' required)
+        .row
+          .col
+            h3.text-primary Skills:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Skill:
+                input.form-control.bg-light(type='text' name='skills' required)
+        .row
+          .col
+            h3.text-primary Software Projects Undertaken:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Project Name
+                input.form-control.bg-light(type='text' name='softwareProjectsUndertakenprojectName' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Description:
+                textarea.form-control.bg-light(name='softwareProjectsUndertakendescription' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Technologies Used:
+                input.form-control.bg-light(type='text' name='softwareProjectsUndertakentechnologiesUsed' required)
+        .row 
+          .col
+            h3.text-primary Spoken Languages:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Language:
+                input.form-control.bg-light(type='text' name='spokenLanguageslanguage' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Proficiency:
+                input.form-control.bg-light(type='text' name='spokenLanguagesproficiency' required)
+        .row 
+          .col
+            h3.text-primary Hobbies:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Hobby:
+                input.form-control.bg-light(type='text' name='hobbies' required)    
+        .row 
+          .col
+            h3.text-primary References:
+            fieldset
+              .form-group
+                label.text-uppercase.font-weight-bold Name:
+                input.form-control.bg-light(type='text' name='referencesname' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Job Title:
+                input.form-control.bg-light(type='text' name='referencesjobTitle' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Company:
+                input.form-control.bg-light(type='text' name='referencescompany' required)
+              .form-group
+                label.text-uppercase.font-weight-bold Contact Details:
+                input.form-control.bg-light(type='text' name='referencescontactDetails' required)
+        .row 
+          .col
+            input.form-control.btn.btn-primary(type='submit' value='Submit')
+

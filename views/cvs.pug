@@ -1,0 +1,91 @@
+doctype html
+html(lang='en')
+  head
+    title CVs
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  body
+    .container
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand CV Creator
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav
+            li.navbar-item
+              a.nav-link(href='/') Create CV
+            li.navbar-item
+              a.nav-link(href='/cvs') View CVs
+      h1.text-center.text-primary CVs
+      form(method='POST' action='/filter')
+        .form-group
+            label(for='field') Field:
+            select.form-control(name='field')
+                option(value='name') Name
+                option(value='degree') Degree
+                option(value='company') Company
+                option(value='language') Language
+                option(value='hobby') Hobby
+        .form-group
+            label(for='value') Value:
+            input.form-control(type='text' name='value')
+        .form-group
+            input.btn.btn-primary(type='submit' value='Filter')
+      each cv in cvs
+        .card.mb-3
+          .card-body
+            h2.text-center.card-title.text-primary= cv.name
+            h3.card-subtitle Academic Qualifications
+            br
+            ul.list-group
+              each aq in cv.academicQualifications
+                li.list-group-item Degree: #{aq.degree}
+                li.list-group-item Institution: #{aq.institution}
+                li.list-group-item Field of Study: #{aq.fieldOfStudy}
+                li.list-group-item Start Year: #{aq.startYear}
+                li.list-group-item End Year: #{aq.endYear}
+            br
+            h3.card-subtitle Professional Experience
+            br
+            ul.list-group
+              each pe in cv.professionalExperience
+                li.list-group-item Job Title: #{pe.jobTitle}
+                li.list-group-item Company: #{pe.company}
+                li.list-group-item Start Date: #{pe.startDate}
+                li.list-group-item End Date: #{pe.endDate}
+                li.list-group-item Responsibilities: #{pe.responsibilities}
+            br
+            h3.card-subtitle Skills
+            br
+            ul.list-group
+              each skill in cv.skills
+                li.list-group-item= skill
+            br
+            h3.card-subtitle Software Projects Undertaken
+            br
+            ul.list-group
+              each project in cv.softwareProjectsUndertaken
+                li.list-group-item Project Name: #{project.projectName}
+                li.list-group-item Description: #{project.description}
+                li.list-group-item Technologies Used: #{project.technologiesUsed}
+            br
+            h3.card-subtitle Spoken Languages
+            br
+            ul.list-group
+              each language in cv.spokenLanguages
+                li.list-group-item Language: #{language.language}
+                li.list-group-item Proficiency: #{language.proficiency}
+            br
+            h3.card-subtitle Hobbies
+            br
+            ul.list-group
+              each hobby in cv.hobbies
+                li.list-group-item= hobby
+            br
+            h3.card-subtitle References
+            br
+            ul.list-group
+              each reference in cv.references
+                li.list-group-item Name: #{reference.name}
+                li.list-group-item Job Title: #{reference.jobTitle}
+                li.list-group-item Company: #{reference.company}
+                li.list-group-item Contact Details: #{reference.contactDetails}
